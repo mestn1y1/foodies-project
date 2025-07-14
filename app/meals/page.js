@@ -1,12 +1,20 @@
 import Link from "next/link";
 import css from "./page.module.css";
 import MealsGrid from "@/components/meals/meals-grid";
+import { getMeals } from "@/lib/meals";
+import { Suspense } from "react";
+
+async function Meals() {
+  const meals = await getMeals();
+  return <MealsGrid meals={meals} />;
+}
+
 export default function MealsPage() {
   return (
     <>
       <header className={css.header}>
         <h1>
-          Delicious meals, created <span className={css.highligh}>by you</span>
+          Delicious meals, created <span className={css.highlight}>by you</span>
         </h1>
         <p>
           Choose your favorite recipe and cook iit yourself. It is easy and fun!
@@ -16,7 +24,9 @@ export default function MealsPage() {
         </p>
       </header>
       <main className={css.main}>
-        <MealsGrid meals={[]} />
+        <Suspense fallback={<p className={css.loading}>Fetching meals...</p>}>
+          <Meals />
+        </Suspense>
       </main>
     </>
   );

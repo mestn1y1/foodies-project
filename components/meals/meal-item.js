@@ -1,12 +1,15 @@
-import Image from "next/image";
-import css from "./meal-item.module.css";
 import Link from "next/link";
+import Image from "next/image";
+
+import css from "./meal-item.module.css";
 
 export default function MealItem({ title, slug, image, summary, creator }) {
   return (
     <article className={css.meal}>
       <header>
-        <Image src={image} alt={title} fill />
+        <div className={css.image}>
+          <Image src={image} alt={title} fill />
+        </div>
         <div className={css.headerText}>
           <h2>{title}</h2>
           <p>by {creator}</p>
