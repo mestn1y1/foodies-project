@@ -4,9 +4,7 @@ import { getMeal } from "@/lib/meals";
 
 export default async function MealDetailsPage({ params }) {
   const meal = await getMeal(params.slug);
-  if (!meal) {
-    notFound();
-  }
+
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
   return (
     <>
