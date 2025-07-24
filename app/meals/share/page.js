@@ -1,3 +1,4 @@
+import ImagePicker from "@/components/meals/image-picker";
 import css from "./page.module.css";
 
 export default function ShareMealPage() {
@@ -5,7 +6,7 @@ export default function ShareMealPage() {
     <>
       <header className={css.header}>
         <h1>
-          Share our <span className={css.highlight}>favorite meal</span>
+          Share your <span className={css.highlight}>favorite meal</span>
         </h1>
         <p>Or any other meal you feel needs sharing!</p>
       </header>
@@ -38,7 +39,7 @@ export default function ShareMealPage() {
               required
             ></textarea>
           </p>
-          IMAGE PICKER
+          <ImagePicker />
           <p className={css.actions}>
             <button type="submit">Share Meal</button>
           </p>
