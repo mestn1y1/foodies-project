@@ -4,6 +4,7 @@ import Image from "next/image";
 import css from "./meal-item.module.css";
 
 export default function MealItem({ title, slug, image, summary, creator }) {
+  console.log("Image URL:", image);
   return (
     <article className={css.meal}>
       <header>
